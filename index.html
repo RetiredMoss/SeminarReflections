@@ -51,10 +51,10 @@
             So, overall, I’d say this program served its purpose. Although, I could say that around 50% of what was being discussed to us was mostly common sense, and then only the other 50% was actual new information for us, due to the nature of our generation. I’m still glad they managed to get this out there especially for future cybersecurity personnel and lawyers. And even with my grievances about the program and how some things were handled, I’d still say that this program was important enough to happen in our school, even if it took time off our schedules.
         </p>
 
-        <button onclick="highlight('personal-stakes')">Personal Stakes</button>
-        <button onclick="highlight('learnings')">Learnings</button>
-        <button onclick="highlight('grievances')">Grievances</button>
-        <button onclick="highlight('overall-opinion')">Overall Opinion</button>
+        <button pys-onclick="highlight('personal-stakes')">Personal Stakes</button>
+        <button pys-onclick="highlight('learnings')">Learnings</button>
+        <button pys-onclick="highlight('grievances')">Grievances</button>
+        <button pys-onclick="highlight('overall-opinion')">Overall Opinion</button>
     </div>
     
     <py-script>
@@ -69,10 +69,8 @@
             # Highlight the selected section
             selected_element = document.getElementById(section_id)
             selected_element.classList.add("highlight")
-
-            # Debugging alert
-            print(f"Highlighted: {section_id}")  # Check console for output
     </py-script>
 </body>
 </html>
+
 
