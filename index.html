@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Essay</title>
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css">
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -27,12 +29,15 @@
         p {
             text-align: justify;
         }
+        .highlight {
+            background-color: yellow;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>My Seminar Reflections</h1>
-        <p>
+        <p id="essay-text">
             My opinions on the seminar a while ago, are overall, pretty neutral. The topic being discussed awhile ago is a pretty relevant one nowadays especially in the rise of technology and my grandma being a relatively recent victim of a hacker with me seeing it all happen. Messages being sent that we didn’t type in, the hacker asking for money, money being given, being booted in and out of the account while trying to figure things out, I’ve pretty much been through the motions. So, I get why the topic needs to be discussed, I just wished that maybe they would discuss it more with the elderly or more unexperienced internet goers, rather than students who grew up with tech and teachers that have their entire livelihoods based around tech.
         </p>
         <p>
@@ -44,6 +49,32 @@
         <p>
             So, overall, I’d say this program served its purpose. Although, I could say that around 50% of what was being discussed to us was mostly common sense, and then only the other 50% was actual new information for us, due to the nature of our generation. I’m still glad they managed to get this out there especially for future cybersecurity personnel and lawyers. And even with my grievances about the program and how some things were handled, I’d still say that this program was important enough to happen in our school, even if it took time off our schedules.
         </p>
+        <button id="highlight-btn" onclick="highlight_text()">Highlight Key Points</button>
+        <button id="resources-btn" onclick="show_resources()">Show Additional Resources</button>
+        <div id="resources" style="display:none; margin-top: 20px;">
+            <h3>Additional Resources:</h3>
+            <ul>
+                <li><a href="https://www.privacy.gov.ph/" target="_blank">Data Privacy Act of 2012</a></li>
+                <li><a href="https://www.cyber.gov.ph/" target="_blank">Cybersecurity Philippines</a></li>
+            </ul>
+        </div>
     </div>
+    
+    <py-script>
+        def highlight_text():
+            # Get the essay text element and highlight it
+            from js import document
+
+            essay = document.getElementById("essay-text")
+            essay.classList.toggle("highlight")
+
+        def show_resources():
+            # Show the additional resources section
+            from js import document
+
+            resources = document.getElementById("resources")
+            resources.style.display = "block"
+    </py-script>
 </body>
 </html>
+
