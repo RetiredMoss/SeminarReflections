@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Essay</title>
-    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css">
-    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -26,97 +24,49 @@
             border-radius: 5px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
+        p {
+            text-align: justify;
+        }
         button {
-            margin: 5px;
-        }
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-        .modal-content {
-            background-color: #fefefe;
-            margin: 15% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 600px;
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
             border-radius: 5px;
-        }
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
             cursor: pointer;
         }
+        button:hover {
+            background-color: #45a049;
+        }
     </style>
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css">
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
 </head>
 <body>
     <div class="container">
         <h1>My Seminar Reflections</h1>
-        <p id="personal-stakes" style="display:none;">
-            The topic being discussed awhile ago is a pretty relevant one nowadays especially in the rise of technology and my grandma being a relatively recent victim of a hacker with me seeing it all happen. Messages being sent that we didn’t type in, the hacker asking for money, money being given, being booted in and out of the account while trying to figure things out, I’ve pretty much been through the motions.
+        <p>
+            My opinions on the seminar a while ago, are overall, pretty neutral. The topic being discussed awhile ago is a pretty relevant one nowadays especially in the rise of technology and my grandma being a relatively recent victim of a hacker with me seeing it all happen. Messages being sent that we didn’t type in, the hacker asking for money, money being given, being booted in and out of the account while trying to figure things out, I’ve pretty much been through the motions. So, I get why the topic needs to be discussed, I just wished that maybe they would discuss it more with the elderly or more unexperienced internet goers, rather than students who grew up with tech and teachers that have their entire livelihoods based around tech.
         </p>
-        <p id="learnings" style="display:none;">
-            Regarding the things I learned in the seminar, I learned mostly about RA 10173 or The Data Privacy Act of 2012. All its features and considerations such as what happens to the data of the deceased, the rights we have during data processing, and then the actions punishable by the law.
+        <p>
+            Regarding the things I learned in the seminar, I learned mostly about RA 10173 or The Data Privacy Act of 2012. All its features and considerations such as what happens to the data of the deceased, the rights we have during data processing, and then the actions punishable by the law. The speaker goes into really great detail about the specifications of RA 10173, although I would have liked there to be more about how to deal with hackers and data leakers. Because, the audience had to ask specifically what they should do in the case of hacking, data leaks and slander, instead of it being part of the program from the get-go.
         </p>
-        <p id="grievances" style="display:none;">
-            The speaker goes into really great detail about the specifications of RA 10173, although I would have liked there to be more about how to deal with hackers and data leakers. Because, the audience had to ask specifically what they should do in the case of hacking, data leaks and slander, instead of it being part of the program from the get-go.
+        <p>
             Apart from that, there were 2 questions I think just never got answered properly. And those questions were about “How to file a case against a foreign hacker/scammer?” and “The legal loopholes and difficulties of cyber justice due to cyberlaws differing from country to country”. And the answer didn’t make sense? The speaker said something along the lines of “All the tech is the same and the difference is how we use them, so the approach is the same?”, which to me just didn’t answer the question and was more of an answer given because he just didn’t know what to say? I don’t want to sound like I don’t like the speaker, I just really didn’t get how that answer made sense. And it’s a shame that that question didn’t get answered properly because most of the scammers and hackers tend to target foreign countries, and it’s definitely a valid question and concern to have; it’s just sadly, it just never got answered.
         </p>
-        <p id="overall-opinion" style="display:none;">
+        <p>
             So, overall, I’d say this program served its purpose. Although, I could say that around 50% of what was being discussed to us was mostly common sense, and then only the other 50% was actual new information for us, due to the nature of our generation. I’m still glad they managed to get this out there especially for future cybersecurity personnel and lawyers. And even with my grievances about the program and how some things were handled, I’d still say that this program was important enough to happen in our school, even if it took time off our schedules.
         </p>
-
-        <button pys-onclick="showModal('personal-stakes')">Personal Stakes</button>
-        <button pys-onclick="showModal('learnings')">Learnings</button>
-        <button pys-onclick="showModal('grievances')">Grievances</button>
-        <button pys-onclick="showModal('overall-opinion')">Overall Opinion</button>
-    </div>
-    
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close" pys-onclick="closeModal()">&times;</span>
-            <p id="modal-text"></p>
-        </div>
+        <button pys-onclick="thankYou()">Click me for a surprise!</button>
     </div>
 
     <py-script>
-        def showModal(section_id):
-            from js import document
-            
-            text_content = document.getElementById(section_id).innerHTML
-            document.getElementById("modal-text").innerHTML = text_content
-            document.getElementById("myModal").style.display = "block"
-
-        def closeModal():
-            from js import document
-            document.getElementById("myModal").style.display = "none"
-
-        # Close the modal when the user clicks outside of it
-        def setup_modal_close():
-            from js import document
-            modal = document.getElementById("myModal")
-
-            def handle_click(event):
-                if event.target == modal:
-                    closeModal()
-
-            modal.addEventListener("click", handle_click)
-
-        setup_modal_close()
+        def thankYou():
+            from js import alert
+            alert("Thanks for reading!")
     </py-script>
 </body>
 </html>
