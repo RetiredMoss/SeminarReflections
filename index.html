@@ -37,43 +37,39 @@
 <body>
     <div class="container">
         <h1>My Seminar Reflections</h1>
-        <p id="essay-text">
-            My opinions on the seminar a while ago, are overall, pretty neutral. The topic being discussed awhile ago is a pretty relevant one nowadays especially in the rise of technology and my grandma being a relatively recent victim of a hacker with me seeing it all happen. Messages being sent that we didn’t type in, the hacker asking for money, money being given, being booted in and out of the account while trying to figure things out, I’ve pretty much been through the motions. So, I get why the topic needs to be discussed, I just wished that maybe they would discuss it more with the elderly or more unexperienced internet goers, rather than students who grew up with tech and teachers that have their entire livelihoods based around tech.
+        <p id="personal-stakes">
+            The topic being discussed awhile ago is a pretty relevant one nowadays especially in the rise of technology and my grandma being a relatively recent victim of a hacker with me seeing it all happen. Messages being sent that we didn’t type in, the hacker asking for money, money being given, being booted in and out of the account while trying to figure things out, I’ve pretty much been through the motions.
         </p>
-        <p>
-            Regarding the things I learned in the seminar, I learned mostly about RA 10173 or The Data Privacy Act of 2012. All its features and considerations such as what happens to the data of the deceased, the rights we have during data processing, and then the actions punishable by the law. The speaker goes into really great detail about the specifications of RA 10173, although I would have liked there to be more about how to deal with hackers and data leakers. Because, the audience had to ask specifically what they should do in the case of hacking, data leaks and slander, instead of it being part of the program from the get-go.
+        <p id="learnings">
+            Regarding the things I learned in the seminar, I learned mostly about RA 10173 or The Data Privacy Act of 2012. All its features and considerations such as what happens to the data of the deceased, the rights we have during data processing, and then the actions punishable by the law.
         </p>
-        <p>
+        <p id="grievances">
+            The speaker goes into really great detail about the specifications of RA 10173, although I would have liked there to be more about how to deal with hackers and data leakers. Because, the audience had to ask specifically what they should do in the case of hacking, data leaks and slander, instead of it being part of the program from the get-go.
+
             Apart from that, there were 2 questions I think just never got answered properly. And those questions were about “How to file a case against a foreign hacker/scammer?” and “The legal loopholes and difficulties of cyber justice due to cyberlaws differing from country to country”. And the answer didn’t make sense? The speaker said something along the lines of “All the tech is the same and the difference is how we use them, so the approach is the same?”, which to me just didn’t answer the question and was more of an answer given because he just didn’t know what to say? I don’t want to sound like I don’t like the speaker, I just really didn’t get how that answer made sense. And it’s a shame that that question didn’t get answered properly because most of the scammers and hackers tend to target foreign countries, and it’s definitely a valid question and concern to have; it’s just sadly, it just never got answered.
         </p>
-        <p>
+        <p id="overall-opinion">
             So, overall, I’d say this program served its purpose. Although, I could say that around 50% of what was being discussed to us was mostly common sense, and then only the other 50% was actual new information for us, due to the nature of our generation. I’m still glad they managed to get this out there especially for future cybersecurity personnel and lawyers. And even with my grievances about the program and how some things were handled, I’d still say that this program was important enough to happen in our school, even if it took time off our schedules.
         </p>
-        <button id="highlight-btn" onclick="highlight_text()">Highlight Key Points</button>
-        <button id="resources-btn" onclick="show_resources()">Show Additional Resources</button>
-        <div id="resources" style="display:none; margin-top: 20px;">
-            <h3>Additional Resources:</h3>
-            <ul>
-                <li><a href="https://www.privacy.gov.ph/" target="_blank">Data Privacy Act of 2012</a></li>
-                <li><a href="https://www.cyber.gov.ph/" target="_blank">Cybersecurity Philippines</a></li>
-            </ul>
-        </div>
+
+        <button onclick="highlight('personal-stakes')">Personal Stakes</button>
+        <button onclick="highlight('learnings')">Learnings</button>
+        <button onclick="highlight('grievances')">Grievances</button>
+        <button onclick="highlight('overall-opinion')">Overall Opinion</button>
     </div>
     
     <py-script>
-        def highlight_text():
-            # Get the essay text element and highlight it
+        def highlight(section_id):
             from js import document
-
-            essay = document.getElementById("essay-text")
-            essay.classList.toggle("highlight")
-
-        def show_resources():
-            # Show the additional resources section
-            from js import document
-
-            resources = document.getElementById("resources")
-            resources.style.display = "block"
+            
+            # Clear previous highlights
+            for id in ["personal-stakes", "learnings", "grievances", "overall-opinion"]:
+                element = document.getElementById(id)
+                element.classList.remove("highlight")
+                
+            # Highlight the selected section
+            selected_element = document.getElementById(section_id)
+            selected_element.classList.add("highlight")
     </py-script>
 </body>
 </html>
